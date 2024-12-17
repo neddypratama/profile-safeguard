@@ -414,7 +414,8 @@
                 <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <article>
                         <div class="post-img">
-                            <img src="{{ asset('img/Jasa Pengurusan SMK3 Kemnaker Bersama Konsultan Profesional.jpg') }}" style="max-height: 280px" alt="" class="img-fluid">
+                            <img src="{{ asset('img/Jasa Pengurusan SMK3 Kemnaker Bersama Konsultan Profesional.jpg') }}"
+                                style="max-height: 280px" alt="" class="img-fluid">
                         </div>
                         <h2 class="title">
                             <a href="{{ url('/blogs') }}">Kesesuaian Kotak P3K dalam Permenaker </a>
@@ -431,7 +432,8 @@
                 <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <article>
                         <div class="post-img">
-                            <img src="{{ asset('img/Pelatihan K3 Teknisi Listrik Kemnaker RI.jpg') }}" style="max-height: 280px" alt="" class="img-fluid">
+                            <img src="{{ asset('img/Pelatihan K3 Teknisi Listrik Kemnaker RI.jpg') }}"
+                                style="max-height: 280px" alt="" class="img-fluid">
                         </div>
 
                         <h2 class="title">
@@ -450,7 +452,8 @@
                 <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <article>
                         <div class="post-img">
-                            <img src="{{ asset('img/The future of health and safety in construction.jpg') }}" style="max-height: 280px" alt="" class="img-fluid">
+                            <img src="{{ asset('img/The future of health and safety in construction.jpg') }}"
+                                style="max-height: 280px" alt="" class="img-fluid">
                         </div>
                         <h2 class="title">
                             <a href="#">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
@@ -520,26 +523,28 @@
                     </div>
 
                     <div class="col-lg-8">
-                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade"
-                            data-aos-delay="100">
+                        {{-- <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade"
+                            data-aos-delay="100"> --}}
+                        <form action="" method="post" class="php-email-form" data-aos="fade"
+                            data-aos-delay="100" onsubmit="sendMessage(event)">
                             <div class="row gy-4">
                                 <div class="col-md-6">
-                                    <input type="text" name="name" class="form-control"
+                                    <input type="text" id="name" class="form-control"
                                         placeholder="Your Name" required="" />
                                 </div>
 
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" name="email"
+                                    <input type="email" id="email" class="form-control"
                                         placeholder="Your Email" required="" />
                                 </div>
 
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" name="subject" placeholder="Subject"
+                                    <input type="text" id="subject" class="form-control" placeholder="Subject"
                                         required="" />
                                 </div>
 
                                 <div class="col-md-12">
-                                    <textarea class="form-control" name="message" rows="8" placeholder="Message" required=""></textarea>
+                                    <textarea id="message" class="form-control" rows="8" placeholder="Message" required=""></textarea>
                                 </div>
 
                                 <div class="col-md-12 text-center">
@@ -551,6 +556,25 @@
                                 </div>
                             </div>
                         </form>
+                        <script>
+                            function sendMessage(event) {
+                                event.preventDefault(); // Mencegah pengiriman formulir default
+
+                                // Ambil nilai dari formulir
+                                const name = document.getElementById('name').value;
+                                const email = document.getElementById('email').value;
+                                const subject = document.getElementById('subject').value;
+                                const message = document.getElementById('message').value;
+
+                                // Format pesan untuk WhatsApp
+                                const whatsappNumber = '62895360171810'; // Ganti dengan nomor WhatsApp tujuan
+                                const text = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
+                                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+                                // Arahkan ke WhatsApp
+                                window.open(whatsappUrl, '_blank');
+                            }
+                        </script>
                     </div>
                     <!-- End Contact Form -->
                 </div>
